@@ -4,16 +4,25 @@ import Board from './components/Board/Board'
 
 function App() {
 	const [tasks, setTasks] = useState([
-		// mock data for initial render
-		{ id: 1, title: "Изучить архитектуру проекта", status: "todo" },
-		{ id: 2, title: "Реализовать модель данных", status: "in-progress" },
-		{ id: 3, title: "Сделать первый коммит", status: "done" },
+		{ id: 1, title: "Example task", status: "todo" } // mock task for initial example
+		// other tasks will be added by the user
 	])
+
+
+	function handleAddTask(title) {
+		const newTask = {
+			id: Date.now(),
+			title,
+			status: "todo",
+		}
+		setTasks(prevTasks => [...prevTasks, newTask])
+	}
+
 
 	return (
 		<>
 			<h1>Kanban Board</h1>
-			<AddTask />
+			<AddTask onAddTask={handleAddTask} />
 			<Board tasks={tasks} />
 		</>
 	)
