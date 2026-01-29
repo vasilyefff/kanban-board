@@ -1,16 +1,21 @@
-export default function Column({ status, tasks }) {
+import Task from "../Task/Task";
 
-	const filteredTasks = tasks.filter(task => task.status === status)
+export default function Column({ status, tasks, onChangeStatus }) {
+  const filteredTasks = tasks.filter(
+    task => task.status === status
+  );
 
-	return (
-		<div>
-			<h3>{status}</h3>
+  return (
+    <div>
+      <h3>{status}</h3>
 
-			{filteredTasks.map(task => (
-				<div key={task.id}>
-					{task.title}
-				</div>
-			))}
-		</div>
-	)
+      {filteredTasks.map(task => (
+        <Task
+          key={task.id}
+          task={task}
+          onChangeStatus={onChangeStatus}
+        />
+      ))}
+    </div>
+  );
 }

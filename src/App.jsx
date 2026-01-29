@@ -18,14 +18,28 @@ function App() {
 		setTasks(prevTasks => [...prevTasks, newTask])
 	}
 
+	const changeStatus = (id, newStatus) => {
+		setTasks(prevTasks =>
+			prevTasks.map(task => {
+				if (task.id === id) {
+					return { ...task, status: newStatus };
+				}
+				return task;
+			})
+		);
+	};
+
 
 	return (
 		<>
 			<h1>Kanban Board</h1>
 			<AddTask onAddTask={handleAddTask} />
-			<Board tasks={tasks} />
+			<Board tasks={tasks} onChangeStatus={changeStatus} />
 		</>
 	)
 }
 
 export default App
+
+
+

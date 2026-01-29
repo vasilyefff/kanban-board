@@ -1,12 +1,19 @@
 import Column from "../Column/Column"
+import { STATUSES } from "../../constants/statuses";
 
-export default function Board({ tasks }) {
+
+export default function Board({ tasks, onChangeStatus }) {
+
 	return (
 		<div>
-			<Column status="todo" tasks={tasks} />
-			<Column status="in-progress" tasks={tasks} />
-			<Column status="done" tasks={tasks} />
+			{STATUSES.map(status => (
+				<Column
+					key={status}
+					status={status}
+					tasks={tasks}
+					onChangeStatus={onChangeStatus}
+				/>
+			))}
 		</div>
-
 	)
 }
