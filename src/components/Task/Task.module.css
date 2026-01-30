@@ -1,0 +1,47 @@
+.task {
+	padding: 12px 14px;
+	border-radius: 12px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.title {
+	flex: 1;
+	font-size: 14px;
+}
+
+.actions {
+	display: flex;
+	gap: 6px;
+}
+
+.btn {
+	border: none;
+	background: rgba(255, 255, 255, 0.25);
+	color: #fff;
+	padding: 6px 10px;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.btn:disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
+
+.btn:hover {
+	background: rgba(255, 255, 255, 0.35);
+}
+
+.delete {
+	background: rgba(255, 200, 200, 0.3);
+}
+
+.delete:hover {
+	background: rgba(255, 200, 200, 0.5);
+}

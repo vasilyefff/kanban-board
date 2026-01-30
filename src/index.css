@@ -1,0 +1,51 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: system-ui, -apple-system, sans-serif;
+	background: #282c34;
+	color: #fff;
+	min-height: 100vh;
+}
+
+#root {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.app {
+	padding: 24px;
+	max-width: 1200px;
+}
+
+.app h1 {
+	margin: 0 0 20px;
+	text-align: center;
+	font-size: 1.75rem;
+	font-weight: 600;
+}
+
+.app [class*="board"] > [class*="column"]:nth-child(1) {
+	background: #6b779e;
+}
+.app [class*="board"] > [class*="column"]:nth-child(1) > [class*="task"] {
+	background: #5a668b;
+}
+.app [class*="board"] > [class*="column"]:nth-child(2) {
+	background: #3f82f6;
+}
+.app [class*="board"] > [class*="column"]:nth-child(2) > [class*="task"] {
+	background: #6d9df8;
+}
+.app [class*="board"] > [class*="column"]:nth-child(3) {
+	background: #34d399;
+}
+.app [class*="board"] > [class*="column"]:nth-child(3) > [class*="task"] {
+	background: #6be4b3;
+}

@@ -1,0 +1,41 @@
+.wrapper {
+	display: flex;
+	gap: 12px;
+	justify-content: center;
+	margin-bottom: 24px;
+}
+
+.wrapper input {
+	flex: 1;
+	max-width: 360px;
+	padding: 10px 14px;
+	border-radius: 10px;
+	border: 1px solid #444;
+	background: #21252b;
+	color: #fff;
+	font-size: 14px;
+}
+
+.wrapper input::placeholder {
+	color: #888;
+}
+
+.wrapper input:focus {
+	outline: none;
+	border-color: #6b779e;
+}
+
+.wrapper button {
+	padding: 10px 18px;
+	border-radius: 10px;
+	border: none;
+	background: #6b779e;
+	color: #fff;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.wrapper button:hover {
+	background: #5a668b;
+}

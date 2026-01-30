@@ -1,4 +1,6 @@
 import { useState } from "react"
+import styles from "./AddTask.module.css";
+
 
 export default function AddTask({ onAddTask }) {
 	const [text, setText] = useState("")
@@ -10,7 +12,7 @@ export default function AddTask({ onAddTask }) {
 	}
 
 	return (
-		<div>
+		<div className={styles.wrapper}>
 			<input
 				type="text"
 				value={text}

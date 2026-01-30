@@ -1,0 +1,7 @@
+.board {
+	display: flex;
+	gap: 24px;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding: 8px 0;
+}
