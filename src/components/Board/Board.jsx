@@ -3,7 +3,7 @@ import { STATUSES } from "../../constants/statuses";
 import styles from "./Board.module.css"
 
 
-export default function Board({ tasks, onChangeStatus, onDeleteTask }) {
+export default function Board({ tasks, onChangeStatus, onDeleteTask, onEditTask }) {
 
 	return (
 		<div className={styles.board}>
@@ -14,6 +14,7 @@ export default function Board({ tasks, onChangeStatus, onDeleteTask }) {
 					tasks={tasks}
 					onChangeStatus={onChangeStatus}
 					onDeleteTask={onDeleteTask}
+					onEditTask={onEditTask}
 				/>
 			))}
 		</div>

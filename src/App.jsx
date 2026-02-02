@@ -6,7 +6,7 @@ function App() {
 	const [tasks, setTasks] = useState(() => {
 		const saved = localStorage.getItem("tasks");
 		return saved ? JSON.parse(saved) : [
-			{ id: 1, title: "Example task", status: "todo" }
+			{ id: 1, title: "Example task", status: "ToDo" }
 		];
 	});
 
@@ -15,7 +15,7 @@ function App() {
 		const newTask = {
 			id: Date.now(),
 			title,
-			status: "todo",
+			status: "ToDo",
 		}
 		setTasks(prevTasks => [...prevTasks, newTask])
 	}
@@ -36,6 +36,16 @@ function App() {
 		);
 	};
 
+	const editTask = (id, newTitle) => {
+		setTasks(prev =>
+			prev.map(task =>
+				task.id === id
+					? { ...task, title: newTitle }
+					: task
+			)
+		);
+	};
+
 
 
 	useEffect(() => {
@@ -51,6 +61,7 @@ function App() {
 				tasks={tasks}
 				onChangeStatus={changeStatus}
 				onDeleteTask={deleteTask}
+				onEditTask={editTask}
 			/>
 		</div>
 	)

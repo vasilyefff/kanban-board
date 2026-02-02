@@ -13,6 +13,35 @@
 	font-size: 14px;
 }
 
+.input {
+	flex: 1;
+	min-width: 0;
+	padding: 8px 12px;
+	border-radius: 8px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	background: rgba(255, 255, 255, 0.15);
+	color: #fff;
+	font-size: 14px;
+}
+
+.input:focus {
+	outline: none;
+	border-color: rgba(255, 255, 255, 0.5);
+}
+
+.editActions {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	flex-shrink: 0;
+}
+
+.editActions .btn {
+	padding: 8px 10px;
+	line-height: 1;
+	flex-shrink: 0;
+}
+
 .actions {
 	display: flex;
 	gap: 6px;

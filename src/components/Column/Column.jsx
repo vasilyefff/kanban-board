@@ -1,7 +1,7 @@
 import Task from "../Task/Task";
 import styles from "./Column.module.css"
 
-export default function Column({ status, tasks, onChangeStatus, onDeleteTask }) {
+export default function Column({ status, tasks, onChangeStatus, onDeleteTask, onEditTask }) {
 	const filteredTasks = tasks.filter(
 		task => task.status === status
 	);
@@ -16,6 +16,7 @@ export default function Column({ status, tasks, onChangeStatus, onDeleteTask }) 
 					task={task}
 					onChangeStatus={onChangeStatus}
 					onDeleteTask={onDeleteTask}
+					onEditTask={onEditTask}
 				/>
 			))}
 		</div>
