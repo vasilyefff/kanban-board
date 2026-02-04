@@ -2,7 +2,7 @@ import { useState } from "react";
 import { STATUSES } from "../../constants/statuses";
 import styles from "./Task.module.css";
 
-export default function Task({ task, onChangeStatus, onDeleteTask, onEditTask }) {
+export default function Task({ task, onChangeStatus, onDeleteTask, onEditTask, onDragStart }) {
 	const [isEditing, setIsEditing] = useState(false);
 	const [editText, setEditText] = useState(task.title);
 
@@ -43,7 +43,10 @@ export default function Task({ task, onChangeStatus, onDeleteTask, onEditTask })
 	};
 
 	return (
-		<div className={styles.task}>
+		<div className={styles.task}
+			draggable
+			onDragStart={() => onDragStart(task)}
+		>
 			<div className={styles.actions}>
 				{!isEditing && !isFirst && (
 					<button

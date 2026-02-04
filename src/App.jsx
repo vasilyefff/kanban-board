@@ -10,6 +10,7 @@ function App() {
 		];
 	});
 
+	const [draggedTask, setDraggedTask] = useState(null);
 
 	function handleAddTask(title) {
 		const newTask = {
@@ -46,6 +47,15 @@ function App() {
 		);
 	};
 
+	const handleDragStart = (task) => {
+		setDraggedTask(task);
+	};
+
+	const handleDrop = (newStatus) => {
+		if (!draggedTask) return;
+		changeStatus(draggedTask.id, newStatus);
+		setDraggedTask(null);
+	};
 
 
 	useEffect(() => {
@@ -62,6 +72,8 @@ function App() {
 				onChangeStatus={changeStatus}
 				onDeleteTask={deleteTask}
 				onEditTask={editTask}
+				onDragStart={handleDragStart}
+				onDrop={handleDrop}
 			/>
 		</div>
 	)
