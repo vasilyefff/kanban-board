@@ -61,10 +61,11 @@ export function useBoard() {
 	return {
 		tasks,
 		handleAddTask,
-		deleteTask,
-		editTask,
-		changeStatus,
-		handleDragStart,
-		handleDrop,
+		onDeleteTask: deleteTask,
+		onEditTask: editTask,
+		onChangeStatus: changeStatus,
+		onDragStart: handleDragStart,
+		onDrop: handleDrop,
 	};
+
 }
