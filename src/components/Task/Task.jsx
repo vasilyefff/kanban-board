@@ -60,7 +60,10 @@ export default function Task({ task, onChangeStatus, onDeleteTask, onEditTask, o
 			</div>
 
 			{!isEditing && (
-				<span className={styles.title}>{task.title}</span>
+				<span className={styles.title} title={task.title}>
+					{task.title}
+				</span>
+
 			)}
 
 			{isEditing && (
