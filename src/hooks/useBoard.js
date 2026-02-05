@@ -1,14 +1,14 @@
 import { useState } from "react";
+import { useLocalStorage } from "./useLocalStorage";
+
 
 
 export function useBoard() {
 
-	const [tasks, setTasks] = useState(() => {
-		const saved = localStorage.getItem("tasks");
-		return saved ? JSON.parse(saved) : [
-			{ id: 1, title: "Example task", status: "ToDo" }
-		];
-	});
+	const [tasks, setTasks] = useLocalStorage("tasks", [
+		{ id: 1, title: "Example task", status: "ToDo" }
+	]);
+
 
 	const [draggedTask, setDraggedTask] = useState(null);
 
