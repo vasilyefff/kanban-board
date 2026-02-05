@@ -1,80 +1,15 @@
-import { useState, useEffect } from "react"
+import { useBoard } from "./hooks/useBoard";
 import AddTask from './components/AddTask/AddTask'
 import Board from './components/Board/Board'
 
 function App() {
-	const [tasks, setTasks] = useState(() => {
-		const saved = localStorage.getItem("tasks");
-		return saved ? JSON.parse(saved) : [
-			{ id: 1, title: "Example task", status: "ToDo" }
-		];
-	});
-
-	const [draggedTask, setDraggedTask] = useState(null);
-
-	function handleAddTask(title) {
-		const newTask = {
-			id: Date.now(),
-			title,
-			status: "ToDo",
-		}
-		setTasks(prevTasks => [...prevTasks, newTask])
-	}
-
-	const changeStatus = (id, newStatus) => {
-		setTasks(prev =>
-			prev.map(task =>
-				task.id === id
-					? { ...task, status: newStatus }
-					: task
-			)
-		);
-	};
-
-	const deleteTask = (id) => {
-		setTasks(prev =>
-			prev.filter(task => task.id !== id)
-		);
-	};
-
-	const editTask = (id, newTitle) => {
-		setTasks(prev =>
-			prev.map(task =>
-				task.id === id
-					? { ...task, title: newTitle }
-					: task
-			)
-		);
-	};
-
-	const handleDragStart = (task) => {
-		setDraggedTask(task);
-	};
-
-	const handleDrop = (newStatus) => {
-		if (!draggedTask) return;
-		changeStatus(draggedTask.id, newStatus);
-		setDraggedTask(null);
-	};
-
-
-	useEffect(() => {
-		localStorage.setItem("tasks", JSON.stringify(tasks));
-	}, [tasks]);
-
+	const board = useBoard();
 
 	return (
 		<div className="app">
 			<h1>Kanban Board</h1>
-			<AddTask onAddTask={handleAddTask} />
-			<Board
-				tasks={tasks}
-				onChangeStatus={changeStatus}
-				onDeleteTask={deleteTask}
-				onEditTask={editTask}
-				onDragStart={handleDragStart}
-				onDrop={handleDrop}
-			/>
+			<AddTask onAddTask={board.handleAddTask} />
+			<Board {...board} />
 		</div>
 	)
 }
