@@ -79,7 +79,6 @@ npm run dev
 src/
 ├── components/      # UI-компоненты (Board, Column, Task, AddTask)
 ├── hooks/           # Кастомные хуки (useBoard, useLocalStorage)
-├── shared/          # Хелперы
 ├── constants/       # Константы (статусы и т.п.)
 ├── App.jsx          # Тонкий container-компонент
 └── main.jsx         # Точка входа
